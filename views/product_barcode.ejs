@@ -142,8 +142,8 @@
                                                                         
                                                                         <td>
 
-                                                                            
-                                                                            <button class="btn btn-primary" id="gen1_barcode" onclick="handleDropdownChange('<%= alldata.name %>', '<%= alldata.primary_code %>', '<%= alldata.secondary_code %>', '<%= alldata.product_code %>' )">
+                                                                            <input type="hidden" name="name<%= alldata.primary_code %><%= alldata.product_code %>" id="name<%= alldata.primary_code %><%= alldata.product_code %>" value="<%= alldata.name %>" />
+                                                                            <button class="btn btn-primary" id="gen1_barcode" onclick="handleDropdownChange('<%= alldata.primary_code %>', '<%= alldata.secondary_code %>', '<%= alldata.product_code %>')">
                                                                                 <i class="fas fa-edit"></i>
                                                                                 <%= language.generate_barcode %>
                                                                             </button>
@@ -226,8 +226,8 @@
             }
             
             
-            function handleDropdownChange(name, prim_code, sec_code, prod_code) {
-               
+            function handleDropdownChange( prim_code, sec_code, prod_code) {
+                var name = document.getElementById('name'+prim_code+prod_code).value;
                 var qty = document.getElementById('printQty_'+prim_code+prod_code).value;
                 var BarCodes = document.getElementById('barcodes_'+prim_code+prod_code).value;
                 // alert(BarCodes)
